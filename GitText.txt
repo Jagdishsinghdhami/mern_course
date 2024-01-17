@@ -1,0 +1,28 @@
+git init
+git add .
+git commit -m "react first commit."
+git remote add source https://github.com/Jagdishsinghdhami/Mern_course.git
+git remote -v
+git branch -M master
+git push -u origin master
+git push -u -f source master
+
+
+-------------------- Install Tailwind css in react --------------------------------
+
+npm install -D tailwindcss
+npx tailwindcss init
+
+
+----------------- tailwind.config.js -----------------------
+
+content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+
+
+------------------------ index.css -------------------
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
