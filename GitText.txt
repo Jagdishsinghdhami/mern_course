@@ -1,12 +1,14 @@
 git init
 git add .
-git commit -m "react first commit."
-git remote add source https://github.com/Jagdishsinghdhami/Mern_course.git
+git commit -m "react six commit."
+git remote add source https://github.com/Jagdishsinghdhami/mern_course.git
 git remote -v
 git branch -M master
 git push -u origin master
 git push -u -f source master
 
+
+git push origin HEAD
 
 -------------------- Install Tailwind css in react --------------------------------
 

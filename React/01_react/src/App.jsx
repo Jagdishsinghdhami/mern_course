@@ -1,22 +1,21 @@
 import { useState } from "react";
 import "./App.css";
 
+// any time when parent re-renders then its child also re-renders as well as
+
 function App() {
   const [todos, setTodos] = useState([
     {
-      id: 1,
       title: "Go to Gym",
       description: "go to gym 7 - 9",
       completed: false,
     },
     {
-      id: 2,
       title: "Go to study",
       description: "go to study 10 - 4",
       completed: true,
     },
     {
-      id: 3,
       title: "Go to movie",
       description: "go to movie 10 - 1",
       completed: false,
@@ -24,6 +23,17 @@ function App() {
   ]);
 
   function addTodo() {
+    // let newTodos = [];
+    // for (let i = 0; i < todos.length; i++) {
+    //   newTodos.push(todos[i]);
+    // }
+    // newTodos.push({
+    //   id: 4,
+    //   title: "New todo push methods",
+    //   description: "new todo descriptiom",
+    // });
+    // setTodos(newTodos);
+
     setTodos([
       ...todos,
       {
@@ -38,7 +48,11 @@ function App() {
       <h1>This is a react and vite application</h1>
       <button onClick={addTodo}>Add Todo</button>
       {todos.map((todo) => (
-        <Todo key={todo.id} title={todo.title} description={todo.description} />
+        <Todo
+          key={todo.title}
+          title={todo.title}
+          description={todo.description}
+        />
       ))}
     </>
   );
