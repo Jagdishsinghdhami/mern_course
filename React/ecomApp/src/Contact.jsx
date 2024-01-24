@@ -28,6 +28,14 @@ const Contact = () => {
               transform: scale(0.9);
             }
           }
+          .submit {
+            cursor: pointer;
+            transition: all 0.2s;
+            background-color: ${({ theme }) => theme.colors.white};
+            border: 1px solid ${({ theme }) => theme.colors.btn};
+            color: ${({ theme }) => theme.colors.btn};
+            transform: scale(0.9);
+          }
         }
       }
     }
@@ -86,7 +94,7 @@ const Contact = () => {
               placeholder="Enter you message"
             ></textarea>
 
-            <input type="submit" value="send" />
+            <input className="submit" type="submit" value="send" />
           </form>
         </div>
       </div>

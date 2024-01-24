@@ -11,6 +11,7 @@ import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { AppProvider } from "./context/ProductContext";
 
 function App() {
   const theme = {
@@ -39,22 +40,24 @@ function App() {
   };
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <GlobalStyle />
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/singleproduct/:id" element={<SingleProduct />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </ThemeProvider>
+      <AppProvider>
+        <ThemeProvider theme={theme}>
+          <BrowserRouter>
+            <GlobalStyle />
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/singleproduct/:id" element={<SingleProduct />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </ThemeProvider>
+      </AppProvider>
     </>
   );
 }

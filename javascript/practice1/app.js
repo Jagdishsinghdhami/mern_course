@@ -253,13 +253,261 @@
 // const promise = new Promise(function(resolve, reject){
 
 // })
-const promise = new Promise(
-  (resolve) => {
-    setTimeout(() => {
-      resolve("I'm a Promise!");
-    }, 5000);
-  },
-  (reject) => {}
-);
+// const promise = new Promise(
+//   (resolve) => {
+//     setTimeout(() => {
+//       resolve("I'm a Promise!");
+//     }, 5000);
+//   },
+//   (reject) => {}
+// );
 
-promise.then((value) => console.log(value));
+// promise.then((value) => console.log(value));
+
+// callback function :
+
+// a callback function is a function passed into another function as an arguments . this fnction is invoked into the outer function to complete an action .
+
+// function callbackFunc(name) {
+//   console.log("Hello " + name);
+// }
+
+// function outerFunction(callback) {
+//   let name = prompt("Enter your name");
+//   callback(name);
+// }
+// outerFunction(callbackFunc);
+
+// function doAsyncOperation(data, callback) {
+//   console.log("performing asyn operation with callback data " + data);
+
+//   setTimeout(() => {
+//     callback("operation complete in 2 seconds");
+//   }, 2000);
+// }
+
+// function handleComption(message) {
+//   console.log("callback " + message);
+// }
+
+// doAsyncOperation("some data", handleComption);
+
+// promise chaining
+
+// new Promise(function (resolve, reject) {
+//   setTimeout(() => resolve(1), 1000);
+// })
+//   .then(function (result) {
+//     console.log(result); // 1
+//     return result * 2;
+//   })
+//   .then(function (result) {
+//     console.log(result); // 2
+//     return result * 3;
+//   })
+//   .then(function (result) {
+//     console.log(result); // 6
+//     return result * 4;
+//   });
+
+// new Promise(function (resolve, reject) {
+//   setTimeout(() => resolve(3), 1000);
+// })
+//   .then(function (result) {
+//     console.log(result);
+//     return result * 2;
+//   })
+//   .then(function (result) {
+//     console.log(result);
+//     return result * 3;
+//   })
+//   .then(function (result) {
+//     console.log(result);
+//     return result * 4;
+//   });
+
+// const Promise1 = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//     resolve("promise 1 is resolved");
+//   }, 1000);
+// });
+
+// const Promise2 = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//     resolve("promise 2 is resolved");
+//   }, 2000);
+// });
+
+// const Promise3 = new Promise(function (resolve, reject) {
+//   setTimeout(() => {
+//     resolve("promise 3 is resolved");
+//   }, 2000);
+// });
+
+// Promise.all([Promise1, Promise2, Promise3])
+//   .then((result) => {
+//     console.log(result);
+//   })
+//   .catch((error) => console.log(`Error in promises ${error}`));
+
+// console.log(!isNaN("hiii"));
+// console.log(!isNaN("1000"));
+// console.log(!isNaN(100));
+// console.log(!isNaN(true));
+// console.log(!isNaN(false));
+
+// var mainInndex = "Hello jagdish singh dhami";
+// // console.log(mainInndex.includes("Hello"));
+// console.log(mainInndex.indexOf("jagd") !== -1);
+
+// var object = {
+//   key1: "Jagdish singh",
+//   key2: "Ashok singh",
+//   key3: "jazz dhami",
+// };
+// for (var key in object) {
+//   // console.log(key);
+//   // console.log(object[key]);
+//   if (object.hasOwnProperty(key)) {
+//     console.log(key + " " + object[key]);
+//   }
+// }
+
+// var today = new Date();
+// var dd = String(today.getDate()).padStart(2, "5");
+// var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+// var yyyy = today.getFullYear();
+
+// today = mm + "/" + dd + "/" + yyyy;
+// document.write(today);
+
+// first letter as a uppercase in function
+
+// function capitalizeFirstLetter(string) {
+//   return string.charAt(0).toUpperCase() + string.slice(1);
+// }
+
+// console.log(capitalizeFirstLetter("jagdish singh"));
+
+// Date and Time in javascript
+
+// const newDate = new Date();
+// console.log(newDate);
+// const dd = String(newDate.getDate()).padStart(2, "0");
+// const mm = String(newDate.getMonth() + 1).padStart(2, "0");
+// const yy = String(newDate.getFullYear());
+// console.log(dd);
+
+// console.log(dd + " / " + mm + " / " + yy);
+
+// var object = {
+//   key1: "Jagdish singh",
+//   key2: "jazz dhami",
+// };
+// object.key3 = "ashok singh";
+// object["key4"] = "new object";
+// console.log(object);
+
+// var str =
+//   "This is a \
+// very lengthy \
+// sentence!";
+
+// console.log(str);
+
+// for (i = 0; i < 10; i++) {
+//   var text = "";
+//   if (i === 5) {
+//     continue;
+//   }
+//   text += "Number: " + i + "<br>";
+//   console.log(text);
+// }
+
+// table of 19
+
+// for (let i = 17; i <= 19; i++) {
+//   for (j = 1; j <= 10; j++) {
+//     console.log(i + " * " + j + " = " + i * j);
+//   }
+// }
+
+// async await
+
+// const p = new Promise(function (resolve, reject) {
+//   resolve("promise has been solved");
+// });
+
+// async function handlePromise() {
+//   const val = await p;
+//   console.log(val);
+// }
+// handlePromise();
+
+// Heigher order function
+
+// const radius = [3, 1, 2, 4, 5];
+
+// const area = function (radius) {
+//   return Math.PI * radius * radius;
+// };
+
+// const calculateArea = function (radius, logic) {
+//   const output = [];
+//   for (let i = 0; i < radius.length; i++) {
+//     output.push(logic(radius[i]));
+//   }
+//   return output;
+// };
+
+// console.log(calculateArea(radius, area));
+
+// for (let i = 1; i <= 10; i++) {
+//   for (let j = 1; j <= 10; j++) {
+//     console.log(`${i} * ${j} = ${i * j}`);
+//   }
+// }
+
+// function evenNumber(number) {
+//   if (number % 2 == 0) {
+//     console.log("this  is even number");
+//   } else {
+//     console.log("this is odd number");
+//   }
+// }
+
+// let number = prompt("kindly update number");
+// evenNumber(number);
+
+// map filter arrow function
+
+// const arrMap = [1, 2, 3, 4, 5];
+// without map function double the array
+
+// const double = [];
+// for (let i = 0; i < arrMap.length; i++) {
+//   double.push(arrMap[i] * 2);
+// }
+
+// console.log(double);
+
+// const doubleValue = arrMap.map((val) => {
+//   return val * 2;
+// });
+// console.log("double value ", doubleValue);
+// console.log("arrMap ", arrMap);
+
+// filter methods
+
+const arrFilter = ["jagdish", "singh", "dhami"];
+
+const filterMethod = arrFilter.filter((val) => {
+  if (val.includes("jags")) {
+    return true;
+  } else {
+    return false;
+  }
+});
+
+console.log(arrFilter);
+console.log(filterMethod);
