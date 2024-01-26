@@ -499,15 +499,89 @@
 
 // filter methods
 
-const arrFilter = ["jagdish", "singh", "dhami"];
+// const arrFilter = ["jagdish", "singh", "dhami"];
 
-const filterMethod = arrFilter.filter((val) => {
-  if (val.includes("jags")) {
-    return true;
-  } else {
-    return false;
-  }
-});
+// const filterMethod = arrFilter.filter((val) => {
+//   if (val.includes("jags")) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// });
 
-console.log(arrFilter);
-console.log(filterMethod);
+// console.log(arrFilter);
+// console.log(filterMethod);
+
+// function randomInteger(min, max) {
+//   return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
+// console.log(randomInteger(5, 100));
+
+// const user = {
+//   name: "jagdish singh",
+//   age: 24,
+//   gender: "male",
+// };
+// console.log(Object.entries(user));
+
+// create an objet with prototype
+
+// let User = {
+//   name: "Jagdish singh",
+//   printInfo: function () {
+//     console.log(`Hello my name is ${this.name}`);
+//   },
+// };
+
+// const admin = Object.create(User);
+// admin.name = "jazz dhamii";
+// admin.printInfo();
+// User.printInfo();
+// console.log(User);
+// console.log(admin);
+
+// encode url
+
+// var uri = "https://mozilla.org/?x=jkghghhj";
+// var encoded = encodeURI(uri);
+// console.log(encoded); // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
+
+// const newObject = {};
+
+// Object.defineProperty(newObject, "newProperty", {
+//   value: 100,
+//   writable: false,
+// });
+// newObject.newProperty = 200;
+// console.log(newObject.newProperty);
+
+// class Employee {
+//   constructor() {
+//     this.name = "Jagdish singh";
+//   }
+// }
+// var employeeObject = new Employee();
+
+// console.log(employeeObject.name);
+// console.log(Employee.name);
+
+// function func1() {
+//   console.log("This is a first definition");
+// }
+// function func1() {
+//   console.log("This is a second definition");
+// }
+// func1();
+
+// console.log(`This is string sentence
+// 'This is string sentence 2`);
+
+// let arr = [1, 2, 3, 4, 5, -6, 7];
+// arr.length = 0;
+// console.log(arr);
+
+function verifyAnagrams(word1) {
+  return word1.split("").sort();
+}
+console.log(verifyAnagrams("ate"));
+
