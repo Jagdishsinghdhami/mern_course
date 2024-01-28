@@ -580,8 +580,19 @@
 // arr.length = 0;
 // console.log(arr);
 
-function verifyAnagrams(word1) {
-  return word1.split("").sort();
-}
-console.log(verifyAnagrams("ate"));
+// function verifyAnagrams(word1) {
+//   return word1.split("").sort();
+// }
+// console.log(verifyAnagrams("ate"));
 
+// let cities = ["Singapore", "Delhi", "London"];
+// cities.length = 0; // cities becomes []
+// console.log(cities);
+
+function factorial(n, acc = 1) {
+  if (n === 0) {
+    return acc;
+  }
+  return factorial(n - 1, n * acc);
+}
+console.log(factorial(5)); //120

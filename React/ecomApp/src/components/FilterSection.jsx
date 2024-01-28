@@ -1,11 +1,37 @@
 import styled from "styled-components";
 import { useFilterContext } from "../context/Filter_Context";
+import { FaCheck } from "react-icons/fa";
+import FormatPrice from "../Helper/FormatPrice";
+import { Button } from "../styles/Button";
 
 const FilterSection = () => {
   const {
-    filters: { text },
+    filters: { text, category, color, price, maxPrice, minPrice },
+    all_products,
     updateFilterValue,
+    clearFilters,
   } = useFilterContext();
+
+  // To get the unique data of each fields
+
+  const getUniqueData = (data, attr) => {
+    let newVal = data.map((curElem) => {
+      return curElem[attr];
+    });
+
+    if (attr === "colors") {
+      // return (newVal = ["all", ...new Set([].concat(...newVal))]);
+      newVal = newVal.flat();
+    }
+
+    return (newVal = ["all", ...new Set(newVal)]);
+  };
+
+  // we need uniques data
+  const categoryOnlyData = getUniqueData(all_products, "category");
+  const companyData = getUniqueData(all_products, "company");
+  const colorsData = getUniqueData(all_products, "colors");
+
   return (
     <Wrapper>
       <div className="filter-search">
@@ -15,13 +41,109 @@ const FilterSection = () => {
             name="text"
             value={text}
             onChange={updateFilterValue}
+            placeholder="search"
           />
         </form>
+      </div>
+
+      <div className="filter-category">
+        <h3>Category</h3>
+        <div>
+          {categoryOnlyData.map((curElem, index) => {
+            return (
+              <button
+                key={index}
+                type="button"
+                name="category"
+                className={curElem === category ? "active" : ""}
+                onClick={updateFilterValue}
+                value={curElem}
+              >
+                {curElem}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="filter-company">
+        <h3>Company</h3>
+        <form action="#">
+          <select
+            name="company"
+            id="company"
+            className="filter-company--select"
+            onClick={updateFilterValue}
+          >
+            {companyData.map((curElem, index) => {
+              return (
+                <option value={curElem} name="company" key={index}>
+                  {curElem}
+                </option>
+              );
+            })}
+          </select>
+        </form>
+      </div>
+
+      <div className="filter-colors colors">
+        <h3>colors</h3>
+        <div className="filter-color-style">
+          {colorsData.map((curColor, index) => {
+            if (curColor === "all") {
+              return (
+                <button
+                  key={index}
+                  type="button"
+                  value={curColor}
+                  name="color"
+                  className="color-all-style"
+                  onClick={updateFilterValue}
+                >
+                  all
+                </button>
+              );
+            }
+            return (
+              <button
+                key={index}
+                type="button"
+                value={curColor}
+                name="color"
+                style={{ backgroundColor: curColor }}
+                className={color == curColor ? "btnStyle active" : "btnStyle"}
+                onClick={updateFilterValue}
+              >
+                {color === curColor ? <FaCheck className="checkStyle" /> : null}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="filter_price">
+        <h3>Price</h3>
+        <p>
+          <FormatPrice price={price} />
+        </p>
+        <input
+          type="range"
+          name="price"
+          min={minPrice}
+          max={maxPrice}
+          value={price}
+          onChange={updateFilterValue}
+        />
+      </div>
+
+      <div className="filter-clear">
+        <Button className="btn" onClick={clearFilters}>
+          Clear Filter
+        </Button>
       </div>
     </Wrapper>
   );
 };
-
 const Wrapper = styled.section`
   padding: 5rem 0;
   display: flex;

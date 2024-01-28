@@ -6,6 +6,7 @@ import { CgMenu, CgClose } from "react-icons/cg";
 
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState(false);
+
   const Nav = styled.nav`
     .navbar-lists {
       display: flex;
@@ -199,10 +200,11 @@ const Nav = () => {
               Contact
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/cart" className="navbar-link cart-trolley--link">
               <FiShoppingCart className="cart-trolley" />
-              <span className="cart-total--item"> 10 </span>
+              <span className="cart-total--item"> Hii </span>
             </NavLink>
           </li>
         </ul>
