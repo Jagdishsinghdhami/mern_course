@@ -1,9 +1,29 @@
-const FilterReducer = (state, action) => {
+const filterReducer = (state, action) => {
   switch (action.type) {
     case "LOAD_FILTER_PRODUCTS":
       let priceArr = action.payload.map((curElem) => curElem.price);
+      console.log(
+        "🚀 ~ file: filterReducer.js ~ line 5 ~ filterReducer ~ priceArr",
+        priceArr
+      );
+
+      // 1way
+      // console.log(Math.max.apply(null, priceArr));
+
+      // let maxPrice = priceArr.reduce(
+      //   (initialVal, curVal) => Math.max(initialVal, curVal),
+      //   0
+      // );
+      // console.log(
+      //   "🚀 ~ file: filterReducer.js ~ line 16 ~ filterReducer ~ maxPrice",
+      //   maxPrice
+      // );
 
       let maxPrice = Math.max(...priceArr);
+      console.log(
+        "🚀 ~ file: filterReducer.js ~ line 23 ~ filterReducer ~ maxPrice",
+        maxPrice
+      );
 
       return {
         ...state,
@@ -11,20 +31,22 @@ const FilterReducer = (state, action) => {
         all_products: [...action.payload],
         filters: { ...state.filters, maxPrice, price: maxPrice },
       };
+
     case "SET_GRID_VIEW":
       return {
         ...state,
         grid_view: true,
       };
+
     case "SET_LIST_VIEW":
       return {
         ...state,
         grid_view: false,
       };
+
     case "GET_SORT_VALUE":
       // let userSortValue = document.getElementById("sort");
       // let sort_value = userSortValue.options[userSortValue.selectedIndex].value;
-
       return {
         ...state,
         sorting_value: action.payload,
@@ -33,8 +55,8 @@ const FilterReducer = (state, action) => {
     case "SORTING_PRODUCTS":
       let newSortData;
       // let tempSortProduct = [...action.payload];
-      const { filter_products, sorting_value } = state;
 
+      const { filter_products, sorting_value } = state;
       let tempSortProduct = [...filter_products];
 
       const sortingProducts = (a, b) => {
@@ -85,22 +107,22 @@ const FilterReducer = (state, action) => {
         });
       }
 
-      if (category !== '"all') {
-        tempFilterProduct = tempFilterProduct.filter((curElem) => {
-          return curElem.category === category;
-        });
+      if (category !== "all") {
+        tempFilterProduct = tempFilterProduct.filter(
+          (curElem) => curElem.category === category
+        );
       }
 
       if (company !== "all") {
-        tempFilterProduct = tempFilterProduct.filter((curElem) => {
-          return curElem.company.toLowerCase() === company.toLowerCase();
-        });
+        tempFilterProduct = tempFilterProduct.filter(
+          (curElem) => curElem.company.toLowerCase() === company.toLowerCase()
+        );
       }
 
       if (color !== "all") {
-        tempFilterProduct = tempFilterProduct.filter((curElem) => {
-          return curElem.colors.includes(color);
-        });
+        tempFilterProduct = tempFilterProduct.filter((curElem) =>
+          curElem.colors.includes(color)
+        );
       }
 
       if (price === 0) {
@@ -112,7 +134,6 @@ const FilterReducer = (state, action) => {
           (curElem) => curElem.price <= price
         );
       }
-
       return {
         ...state,
         filter_products: tempFilterProduct,
@@ -138,4 +159,4 @@ const FilterReducer = (state, action) => {
   }
 };
 
-export default FilterReducer;
+export default filterReducer;

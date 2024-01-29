@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
-import reducer from "../reducer/ProductReducer";
+import reducer from "../reducer/productReducer";
 
 const AppContext = createContext();
 
@@ -29,7 +29,7 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  // my 2nd api call for single products
+  // my 2nd api call for single product
 
   const getSingleProduct = async (url) => {
     dispatch({ type: "SET_SINGLE_LOADING" });
@@ -53,6 +53,7 @@ const AppProvider = ({ children }) => {
   );
 };
 
+// custom hooks
 const useProductContext = () => {
   return useContext(AppContext);
 };

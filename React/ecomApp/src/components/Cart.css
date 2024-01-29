@@ -1,0 +1,61 @@
+.order-total--amount {
+  width: 100%;
+  margin: 4.8rem 0;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.order-total--subdata {
+  border: 0.1rem solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  padding: 3.2rem;
+}
+.order-main-div {
+  display: flex;
+  gap: 3.2rem;
+  justify-content: space-between;
+}
+
+.order-main-div:last-child {
+  background-color: #fafafa;
+}
+
+.order-main-div p:last-child {
+  font-weight: bold;
+}
+.filter-color-style {
+  display: flex;
+  justify-content: center;
+}
+.color-all--style {
+  background-color: transparent;
+  text-transform: capitalize;
+  border: none;
+  cursor: pointer;
+}
+.filter-color-style button.btnStyle {
+  width: 2rem;
+  height: 2rem;
+  background-color: #000;
+  border-radius: 50%;
+  margin-left: 1rem;
+  border: none;
+  outline: none;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.filter-company--select {
+  padding: 0.3rem 1.2rem;
+  font-size: 1.6rem;
+  text-transform: capitalize;
+}
+
+.filter-color-style {
+  display: flex;
+  justify-content: center;
+}

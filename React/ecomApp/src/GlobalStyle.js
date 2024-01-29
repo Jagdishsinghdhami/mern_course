@@ -91,12 +91,11 @@ ${"" /* resuable code section  */}
 
 .grid {
   display: grid;
-  gap: 6rem;
+  gap: 9rem;
 }
 
 .grid-two-column {
   grid-template-columns: repeat(2, 1fr);
-
 }
 
 .grid-three-column {

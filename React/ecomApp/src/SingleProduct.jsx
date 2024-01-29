@@ -31,12 +31,13 @@ const SingleProduct = () => {
     reviews,
     image,
   } = singleProduct;
+
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
   }, []);
 
   if (isSingleLoading) {
-    return <div className="page_loading">Loading......</div>;
+    return <div className="page_loading">Loading.....</div>;
   }
 
   return (
@@ -44,26 +45,24 @@ const SingleProduct = () => {
       <PageNavigation title={name} />
       <Container className="container">
         <div className="grid grid-two-column">
-          {/* product image */}
-
-          <div className="product_image">
+          {/* product Images  */}
+          <div className="product_images">
             <MyImage imgs={image} />
           </div>
 
-          {/* product data  */}
+          {/* product dAta  */}
           <div className="product-data">
             <h2>{name}</h2>
             <Star stars={stars} reviews={reviews} />
-            <p>{reviews} reviews</p>
+
             <p className="product-data-price">
-              MRP :{" "}
+              MRP:
               <del>
                 <FormatPrice price={price + 250000} />
               </del>
             </p>
-            <p className="product-data-price product-data-real-price ">
-              Deal Of the Day :
-              <FormatPrice price={price} />
+            <p className="product-data-price product-data-real-price">
+              Deal of the Day: <FormatPrice price={price} />
             </p>
             <p>{description}</p>
             <div className="product-data-warranty">

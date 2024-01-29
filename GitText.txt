@@ -1,6 +1,6 @@
 git init
 git add .
-git commit -m "react seven commit."
+git commit -m "react eight commit."
 git remote add source https://github.com/Jagdishsinghdhami/mern_course.git
 git remote -v
 git branch -M master

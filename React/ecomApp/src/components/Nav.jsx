@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
+import { useCartContext } from "../context/cart_context";
 
 const Nav = () => {
-  const [menuIcon, setMenuIcon] = useState(false);
-
+  const [menuIcon, setMenuIcon] = useState();
+  const { total_item } = useCartContext();
   const Nav = styled.nav`
     .navbar-lists {
       display: flex;
@@ -160,6 +161,7 @@ const Nav = () => {
       }
     }
   `;
+
   return (
     <Nav>
       <div className={menuIcon ? "navbar active" : "navbar"}>
@@ -200,11 +202,10 @@ const Nav = () => {
               Contact
             </NavLink>
           </li>
-
           <li>
             <NavLink to="/cart" className="navbar-link cart-trolley--link">
               <FiShoppingCart className="cart-trolley" />
-              <span className="cart-total--item"> Hii </span>
+              <span className="cart-total--item"> {total_item} </span>
             </NavLink>
           </li>
         </ul>
